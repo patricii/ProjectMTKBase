@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="gb2312" ?>
+<!-- main configuration for all testing -->
+<cfg>
+  <setting>
+    <com_setting>
+      <item><enable>1</enable><disc>design_type</disc><name>design_type</name><value>0</value><prompt>0:lenovo|1:longcheer|2:huaqin</prompt></item>
+      <item><enable>1</enable><disc>log_err_code</disc><name>log_err_code</name><value>1</value><prompt>0|1</prompt></item>
+      <item><enable>1</enable><disc>lenovo_log_folder</disc><name>lenovo_log_folder</name><value>.\log</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>err_cfg_file</disc><name>err_cfg_file</name><value>\cfg\errCfgFile.xml</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>res_cfg_file</disc><name>res_cfg_file</name><value>\cfg\resCfgFile.xml</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>intel_log_folder</disc><name>intel_log_folder</name><value>C:\CalToolOutput\</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>recode_cal_flag</disc><name>recode_cal_flag</name><value>0</value><prompt>0|1</prompt></item>
+      <item><enable>1</enable><disc>enable_retry_mode</disc><name>enable_retry_mode</name><value>0</value><prompt>0|1</prompt></item>
+      <item><enable>1</enable><disc>enable_power_supply</disc><name>enable_power_supply</name><value>1</value><prompt>0|1</prompt></item>
+      <item><enable>1</enable><disc>enable_fixture</disc><name>enable_fixture</name><value>0</value><prompt>0|1</prompt></item>
+      <item><enable>1</enable><disc>fixture_type</disc><name>fixture_type</name><value>0</value><prompt>0:R_H|1:B_P|2:B_J|3:J_Z</prompt></item>
+      <item><enable>1</enable><disc>fixture_close_mode</disc><name>fixture_close_mode</name><value>1</value><prompt>1:manual control|2:auto control</prompt></item>
+      <item><enable>1</enable><disc>enable_rf_switch</disc><name>enable_rf_switch</name><value>0</value><prompt>0|1</prompt></item>
+      <item><enable>1</enable><disc>rf_switch_port</disc><name>rf_switch_port</name><value>RF1C</value><prompt>RF1C|RF2C|RF3C|RF4C</prompt></item>
+      <item><enable>1</enable><disc>rf_switch_com</disc><name>rf_switch_com</name><value>COM139</value><prompt>RF1C|RF2C|RF3C|RF4C</prompt></item>
+      <item><enable>1</enable><disc>test_mode</disc><name>test_mode</name><value>1</value><prompt>test mode(1:non signaling testing mode|2:signaling testing mode)</prompt></item>
+      <item><enable>1</enable><disc>phone_type</disc><name>phone_type</name><value>blade2_w10</value><prompt>blade2_w10</prompt></item>
+      <item><enable>1</enable><disc>input_sn</disc><name>input_sn</name><value>0</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>only_sn</disc><name>only_sn</name><value>0</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>unclock_modem</disc><name>unclock_modem</name><value>0</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>hw_id_mode</disc><name>hw_id_mode</name><value>1</value><prompt>(1:use the default value|2:read from hw id file)</prompt></item>
+      <item><enable>1</enable><disc>hw_id_file</disc><name>hw_id_file</name><value>C:\TestProgram\TestProgramInfo.CFG</value><prompt>(1:)</prompt></item>
+      <item><enable>1</enable><disc>hw_id_default</disc><name>hw_id_default</name><value>12</value><prompt>(1:)</prompt></item>
+      <item><enable>1</enable><disc>serial_mode</disc><name>serial_mode</name><value>3</value><prompt>(1:serial mode|2:dut parall mode|3:dut parall mode and tx/rx)</prompt></item>
+      <item><enable>1</enable><disc>debug_mode</disc><name>debug_mode</name><value>1</value><prompt>debug mode(0:no debug information 1:save debug information)</prompt></item>
+      <item><enable>1</enable><disc>log_mode</disc><name>log_mode</name><value>2</value><prompt>log file mode(0:re-create file|1:append to file|2:create file with time tamp|3:create file with sn input)</prompt></item>
+      <item><enable>1</enable><disc>repeat_num</disc><name>repeat_num</name><value>50</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>delay_time</disc><name>delay_time</name><value>0</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>repeat_mode_opt</disc><name>repeat_mode_opt</name><value>1</value><prompt>(1: normal mode|2: repeat mode)</prompt></item>
+      <item><enable>1</enable><disc>stop_mode_opt</disc><name>stop_mode_opt</name><value>2</value><prompt>(1:stop on fail|2:continue)</prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_fer_begin</disc><name>step_log_stamp_cal_fer_begin</name><value>---Starting FBR calibration ---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_fer_end</disc><name>step_log_stamp_cal_fer_end</name><value>---Performing FBR calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_fast_fbr_begin</disc><name>step_log_stamp_cal_fast_fbr_begin</name><value>---Starting FBR calibration ---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_fast_fbr_end</disc><name>step_log_stamp_cal_fast_fbr_end</name><value>---Performing FBR calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_afc_begin</disc><name>step_log_stamp_cal_afc_begin</name><value>---Preparing AFC calibration---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_afc_end</disc><name>step_log_stamp_cal_afc_end</name><value>---Performing AFC calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_2g_rx_begin</disc><name>step_log_stamp_cal_2g_rx_begin</name><value>---Performing 2G RX calibration---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_2g_rx_end</disc><name>step_log_stamp_cal_2g_rx_end</name><value>---Performing 2G RX calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_2g_tx_begin</disc><name>step_log_stamp_cal_2g_tx_begin</name><value>---Performing 2G TX calibration---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_2g_tx_end</disc><name>step_log_stamp_cal_2g_tx_end</name><value>---Performing 2G TX calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_2g_fast_begin</disc><name>step_log_stamp_cal_2g_fast_begin</name><value>---Performing 2G Fast calibration---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_2g_fast_end</disc><name>step_log_stamp_cal_2g_fast_end</name><value>---Performing 2G Fast calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_3g_rx_begin</disc><name>step_log_stamp_cal_3g_rx_begin</name><value>---Performing 3G RX calibration---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_3g_rx_end</disc><name>step_log_stamp_cal_3g_rx_end</name><value>---Performing 3G Rx calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_3g_tx_begin</disc><name>step_log_stamp_cal_3g_tx_begin</name><value>---Starting 3G TX calibration ---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_3g_tx_end</disc><name>step_log_stamp_cal_3g_tx_end</name><value>---Performing 3G TX calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_3g_fast_begin</disc><name>step_log_stamp_cal_3g_fast_begin</name><value>---Running FastCal3G---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_3g_fast_end</disc><name>step_log_stamp_cal_3g_fast_end</name><value>---Performing 3G Fast calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_4g_rx_begin</disc><name>step_log_stamp_cal_4g_rx_begin</name><value>---Starting LTE RX calibration---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_4g_rx_end</disc><name>step_log_stamp_cal_4g_rx_end</name><value>---Performing LTE RX calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_4g_tx_begin</disc><name>step_log_stamp_cal_4g_tx_begin</name><value>---Starting LTE Tx calibration ---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_4g_tx_end</disc><name>step_log_stamp_cal_4g_tx_end</name><value>---Performing LTE TX calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_4g_fast_begin</disc><name>step_log_stamp_cal_4g_fast_begin</name><value>---Preparing LTE fast calibration---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_cal_4g_fast_end</disc><name>step_log_stamp_cal_4g_fast_end</name><value>---Performing LTE Fast calibration ended---</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>sum_log_stamp_cal_begin</disc><name>sum_log_stamp_cal_begin</name><value>Test Summary For Iteration</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>sum_log_stamp_cal_end</disc><name>sum_log_stamp_cal_end</name><value>Total Time Over All Iterations and Actions</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_rf_verify_begin</disc><name>step_log_stamp_rf_verify_begin</name><value>Running GSM RF Production Verification test</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_log_stamp_rf_verify_end</disc><name>step_log_stamp_rf_verify_end</name><value>---Checking limits for LTE Tx measurement results</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_num_verify</disc><name>step_num_verify</name><value>6</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>step_num_cal</disc><name>step_num_cal</name><value>6</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>sum_log_stamp_rf_verify_begin</disc><name>sum_log_stamp_rf_verify_begin</name><value>Test Summary For Iteration</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>sum_log_stamp_rf_verify_end</disc><name>sum_log_stamp_rf_verify_end</name><value>Total Time Over All Iterations and Actions</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>run_timeout</disc><name>run_timeout</name><value>350</value><prompt>unit:s</prompt></item>
+      <item><enable>1</enable><disc>comport_connect_timeout</disc><name>comport_connect_timeout</name><value>50</value><prompt>unit:s</prompt></item>
+      <item><enable>1</enable><disc>dut_connect_timeout</disc><name>dut_connect_timeout</name><value>100</value><prompt>unit:s</prompt></item>
+      <item><enable>1</enable><disc>connect_retry_num</disc><name>connect_retry_num</name><value>3</value><prompt>unit:s</prompt></item>
+      <item><enable>1</enable><disc>result_path</disc><name>result_path</name><value>.\log</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>gsn_mode</disc><name>gsn_mode</name><value>1</value><prompt>(1:from nv|2:from barcode)</prompt></item>
+      <item><enable>1</enable><disc>language_opt</disc><name>language_opt</name><value>1</value><prompt>(1:chinese|2:english)</prompt></item>
+      <item><enable>1</enable><disc>attn_min_value</disc><name>attn_min_value</name><value>7.00</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>attn_max_value</disc><name>attn_max_value</name><value>10.00</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>attn_meas_num</disc><name>attn_meas_num</name><value>2</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>attn_gsm_band_diff_max_value</disc><name>attn_gsm_band_diff_max_value</name><value>1.00</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>attn_delta_max_value</disc><name>attn_delta_max_value</name><value>0.50</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>restart_ateDemo_enable</disc><name>restart_ateDemo_enable</name><value>1</value><prompt>0:disable|1:enable</prompt></item>
+      <item><enable>1</enable><disc>continue_fail_max</disc><name>continue_fail_max</name><value>5</value><prompt>default 5 max</prompt></item>
+      <item><enable>1</enable><disc>delete_mtk_log</disc><name>delete_mtk_log</name><value>0</value><prompt>0:disable|1:enable</prompt></item>
+      <item><enable>1</enable><disc>ate_reboot_every_time</disc><name>ate_reboot_every_time</name><value>0</value><prompt>0:disable|1:enable</prompt></item>
+    </com_setting>
+    <instr_setting>
+      <item><enable>1</enable><disc>all_tester_support</disc><name>all_tester_support</name><value>MT8870|IQXSTREAM|CMW500|AG8960|SP6010</value><prompt>MT8870|IQXSTREAM|CMW500</prompt></item>
+      <item><enable>1</enable><disc>cur_tester_type</disc><name>cur_tester_type</name><value>CMW500</value><prompt>MT8870|IQXSTREAM|CMW500</prompt></item>
+      <item><enable>1</enable><disc>tester_connect_addr</disc><name>tester_connect_addr</name><value>GPIB0::10::INSTR</value><prompt>conncet address(lan:TCPIP::192.168.162.101::INSTR|TCPIP0::10.0.0.12::inst0::INSTR|gpib:GPIB0::20::INSTR|usb:USB::0x0aad::0x0003::100564|serial:ASRL14::INSTR)</prompt></item>
+      <item><enable>1</enable><disc>all_tester_port</disc><name>all_tester_port</name><value>RF1C|RF2C|RF3C|RF4C</value><prompt>RF1C|RF2C|RF3C|RF4C</prompt></item>
+      <item><enable>1</enable><disc>cur_tester_port</disc><name>cur_tester_port</name><value>RF1C</value><prompt>RF1C|RF2C|RF3C|RF4C</prompt></item>
+      <item><enable>1</enable><disc>enable_pingpang</disc><name>enable_pingpang</name><value>0</value><prompt>0|1</prompt></item>
+      <item><enable>1</enable><disc>timeout_pingpang</disc><name>timeout_pingpang</name><value>300</value><prompt>300s</prompt></item>
+      <item><enable>1</enable><disc>all_power_support</disc><name>all_power_support</name><value>AG66319B|KET2306</value><prompt>AG66319B|KET2306</prompt></item>
+      <item><enable>1</enable><disc>cur_power_type</disc><name>cur_power_type</name><value>AG66319B</value><prompt>AG66319B|KET2400</prompt></item>
+      <item><enable>1</enable><disc>power_connect_addr</disc><name>power_connect_addr</name><value>GPIB0::4::INSTR</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>power_chan_index</disc><name>power_chan_index</name><value>1</value><prompt>0:1</prompt></item>
+      <item><enable>1</enable><disc>power_ch0_voltage</disc><name>power_ch0_voltage</name><value>4.00</value><prompt>voltage</prompt></item>
+      <item><enable>1</enable><disc>power_ch0_current</disc><name>power_ch0_current</name><value>3.00</value><prompt>current</prompt></item>
+      <item><enable>1</enable><disc>power_ch1_voltage</disc><name>power_ch1_voltage</name><value>4.00</value><prompt>voltage</prompt></item>
+      <item><enable>1</enable><disc>power_ch1_current</disc><name>power_ch1_current</name><value>3.00</value><prompt>current</prompt></item>
+      <item><enable>1</enable><disc>path_source_cfg_file1</disc><name>path_source_cfg_file1</name><value>\mtk\cfg\mode_cl_cal\HQ_AL732A&B(FHC+NSFT)_射频配置文件_通用_V1.0_160228_CAL_CONFIG.cfg</value><prompt>cfg file1</prompt></item>
+      <item><enable>1</enable><disc>path_target_cfg_file1</disc><name>path_target_cfg_file1</name><value>\mtk\cfg\mode_dut_cal_ver\HQ_AL732A&B(FHC+NSFT)_射频配置文件_通用_V1.0_160228_CAL_CONFIG.cfg</value><prompt>current</prompt></item>
+      <item><enable>1</enable><disc>path_source_cfg_file2</disc><name>path_source_cfg_file2</name><value>\mtk\cfg\mode_cl_cal\CT381CAL_20150422(GSM900 1800 1900,LTE B1 B3 B41,C2K_BC0).CFG</value><prompt>cfg file1</prompt></item>
+      <item><enable>1</enable><disc>path_target_cfg_file2</disc><name>path_target_cfg_file2</name><value>\mtk\cfg\mode_dut_cal_ver\PVT_LTG_5M_Online 1202.cfg</value><prompt>current</prompt></item>
+      <item><enable>1</enable><disc>enable_source_cfg_file1</disc><name>enable_source_cfg_file1</name><value>1</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>enable_target_cfg_file1</disc><name>enable_target_cfg_file1</name><value>1</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>enable_source_cfg_file2</disc><name>enable_source_cfg_file2</name><value>0</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>enable_target_cfg_file2</disc><name>enable_target_cfg_file2</name><value>0</value><prompt></prompt></item>
+    </instr_setting>
+    <dut_setting>
+      <item><enable>1</enable><disc>dut_all_group_num</disc><name>dut_all_group_num</name><value>4</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_cur_group_index</disc><name>dut_cur_group_index</name><value>0</value><prompt>group index(0|1|2|3)</prompt></item>
+      <item><enable>1</enable><disc>all_dut_port_mode_support</disc><name>all_dut_port_mode_support</name><value>USB|UART</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_cur_port_mode</disc><name>dut_cur_port_mode</name><value>1</value><prompt>1:usb modem port 2:serial port 3:usb modem port to serial port</prompt></item>
+      <item><enable>1</enable><disc>dut_preloader_com_port</disc><name>dut_preloader_com_port</name><value>3</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_gadget_com_port</disc><name>dut_gadget_com_port</name><value>8</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>at_serial_port_baudrate</disc><name>at_serial_port_pre_baudrate</name><value>115200</value><prompt>115200|57600</prompt></item>
+      <item><enable>1</enable><disc>at_serial_port_datebits</disc><name>at_serial_port_datebits</name><value>8</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>at_serial_port_parity</disc><name>at_serial_port_parity</name><value>none</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>at_serial_port_stopbits</disc><name>at_serial_port_stopbits</name><value>one</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>at_serial_port_encoding</disc><name>at_serial_port_encoding</name><value>ascii</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>at_serial_port_dtrenable</disc><name>at_serial_port_dtrenable</name><value>true</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>at_serial_port_read_timeout</disc><name>at_serial_port_read_timeout</name><value>200</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>at_serial_port_write_timeout</disc><name>at_serial_port_write_timeout</name><value>200</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group0_comport</disc><name>dut_group0_comport</name><value>COM4</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>fixture_group0_comport</disc><name>fixture_group0_comport</name><value>COM6</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group0_port0_pathloss</disc><name>dut_group0_port0_pathloss</name><value>D:\CableLoss\Intel_CableLoss_UserSettings_Group0_Port0.xml</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group0_port0_exe_path</disc><name>dut_group0_port0_exe_path</name><value>\mtk\MTK_atedemo0.exe</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group0_port0_cfg_path</disc><name>dut_grOup0_port0_cfg_path</name><value>\mtk\cfg\MTK_SETUP.ini</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group1_comport</disc><name>dut_group1_comport</name><value>COM4</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>fixture_group1_comport</disc><name>fixture_group1_comport</name><value>COM14</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group1_port0_pathloss</disc><name>dut_group1_port0_pathloss</name><value>D:\CableLoss\Intel_CableLoss_UserSettings_Group1_Port0.xml</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group1_port0_exe_path</disc><name>dut_group1_port0_exe_path</name><value>\mtk\MTK_atedemo1.exe</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group1_port0_cfg_path</disc><name>dut_group0_port0_cfg_path</name><value>\mtk\cfg\MTK_SETUP.ini</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group2_comport</disc><name>dut_group2_comport</name><value>COM5</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>fixture_group2_comport</disc><name>fixture_group2_comport</name><value>COM15</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group2_port0_pathloss</disc><name>dut_group2_port0_pathloss</name><value>D:\CableLoss\Intel_CableLoss_UserSettings_Group2_Port0.xml</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group2_port0_exe_path</disc><name>dut_group2_port0_exe_path</name><value>\mtk\MTK_atedemo2.exe</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group2_port0_cfg_path</disc><name>dut_group0_port0_cfg_path</name><value>\mtk\cfg\MTK_SETUP.ini</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group3_comport</disc><name>dut_group3_comport</name><value>COM6</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>fixture_group3_comport</disc><name>fixture_group3_comport</name><value>COM16</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group3_port0_pathloss</disc><name>dut_group3_port0_pathloss</name><value>D:\CableLoss\Intel_CableLoss_UserSettings_Group3_Port0.xml</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group3_port0_exe_path</disc><name>dut_group3_port0_exe_path</name><value>\mtk\MTK_atedemo3.exe</value><prompt></prompt></item>
+      <item><enable>1</enable><disc>dut_group3_port0_cfg_path</disc><name>dut_group0_port0_cfg_path</name><value>\mtk\cfg\MTK_SETUP.ini</value><prompt></prompt></item>
+    </dut_setting>
+    <sum_setting>
+    </sum_setting>
+    <seq_setting>
+    </seq_setting>
+  </setting>
+</cfg>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<!-- main configuration for all testing -->
+<cfg>
+  <setting>
+    <err_setting>
+      <item><enable>1</enable><disc>连接测试仪表失败</disc><name>err_tester_connect_fail</name><value>..\doc\</value><helpdoc>..\doc\</helpdoc><prompt></prompt></item>
+      <item><enable>1</enable><disc>连接电源失败</disc><name>err_power_supply_connect_fail</name><value>..\doc\</value><helpdoc>..\doc\</helpdoc><prompt></prompt></item>
+      <item><enable>1</enable><disc>连接待测件失败</disc><name>err_dut_connect_fail</name><value>.\log</value><helpdoc>..\doc\</helpdoc><prompt></prompt></item>
+      <item><enable>1</enable><disc>连接串口失败</disc><name>err_comport_fail</name><value>.\log</value><helpdoc>..\doc\</helpdoc><prompt></prompt></item>
+    <err_setting>
+  </setting>
+</cfg>

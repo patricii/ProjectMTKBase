@@ -1,0 +1,324 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Threading;
+using System.Xml;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.IO;
+using System.IO.Ports;
+using System.Collections.Specialized;
+using Microsoft.Win32;
+using System.Security.Permissions;
+using System.Management;
+using NationalInstruments.VisaNS;
+
+
+namespace ateRun
+{
+    class clInstrCtrl
+    {
+        private MessageBasedSession mbSession;
+
+        public double dCurCh0PowerVoltage;
+        public double dCurCh0PowerCurrent;
+        public double dCurCh1PowerVoltage;
+        public double dCurCh1PowerCurrent;
+
+        public string strWriteCmd = "";
+
+        public int clInstrCtrl_Connect(string strCurPowerSupplyType, string strResName, int iChanIndex)
+        {
+            int iStatus = 0;
+            try
+            {
+                mbSession = (MessageBasedSession)ResourceManager.GetLocalManager().Open(strResName);
+                string strReadBuf = "";
+
+                if (strCurPowerSupplyType == "AG66319B")
+                {
+                    if (iChanIndex == 0)
+                    {
+                        iStatus = clInstrCtrl_Query("OUTP?", ref strReadBuf);
+                        if (iStatus != 0)
+                        {
+                            return iStatus;
+                        }
+                        if (strReadBuf.Contains("0"))
+                        {
+                            iStatus = clInstrCtrl_WriteCmd("OUTP ON");
+                            if (iStatus != 0)
+                            {
+                                return iStatus;
+                            }
+                        }
+                    }
+                    else if (iChanIndex == 1)
+                    {
+                        iStatus = clInstrCtrl_Query("OUTP2?", ref strReadBuf);
+                        if (strReadBuf.Contains("0"))
+                        {
+                            iStatus = clInstrCtrl_WriteCmd("OUTP2 ON");
+                            if (iStatus != 0)
+                            {
+                                return iStatus;
+                            }
+                        }
+                    }
+                }
+                else if (strCurPowerSupplyType == "KET2306")
+                {
+                    if (iChanIndex == 0)
+                    {
+                        iStatus = clInstrCtrl_Query("OUTP?", ref strReadBuf);
+                        if (strReadBuf.Contains("0"))
+                        {
+                            iStatus = clInstrCtrl_WriteCmd("OUTP ON");
+                            if (iStatus != 0)
+                            {
+                                return iStatus;
+                            }
+                        }
+                    }
+                    else if (iChanIndex == 1)
+                    {
+                        iStatus = clInstrCtrl_Query("OUTP2?", ref strReadBuf);
+                        if (strReadBuf.Contains("0"))
+                        {
+                            iStatus = clInstrCtrl_WriteCmd("OUTP2 ON");
+                            if (iStatus != 0)
+                            {
+                                return iStatus;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception exp)
+            {
+                iStatus = 9500;
+            }
+            return iStatus;
+        }
+
+        public int clInstrCtrl_Disconnect()
+        {
+            int iStatus = 0;
+            mbSession.Dispose();
+            return iStatus;
+        }
+
+        public int clInstrCtrl_Query(string strWriteCmd, ref string strReadBuf)
+        {
+            int iStatus = 0;
+            try
+            {
+                string textToWrite = ReplaceCommonEscapeSequences(strWriteCmd);
+                string responseString = mbSession.Query(textToWrite);
+                strReadBuf = InsertCommonEscapeSequences(responseString);//转换
+            }
+            catch (Exception exp)
+            {
+                iStatus = 9501;
+            }
+            return iStatus;
+        }
+
+        public int clInstrCtrl_WriteCmd(string strWriteCmd)
+        {
+            int iStatus = 0;
+            try
+            {
+                string textToWrite = ReplaceCommonEscapeSequences(strWriteCmd);
+                mbSession.Write(textToWrite);
+            }
+            catch (Exception exp)
+            {
+                iStatus = 9502;
+            }
+            return iStatus;
+        }
+
+
+        public int clInstrCtrl_PowerOn(string strCurPowerSupplyType, int iChanIndex)
+        {
+            int iStatus = 0;
+            if (strCurPowerSupplyType == "AG66319B")
+            {
+                if (iChanIndex == 0)
+                {
+                    iStatus = clInstrCtrl_WriteCmd("DISP:CHAN 1");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    strWriteCmd = string.Format("VOLT {0}", dCurCh0PowerVoltage);
+                    iStatus = clInstrCtrl_WriteCmd(strWriteCmd);
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    strWriteCmd = string.Format("CURR {0}", dCurCh0PowerCurrent);
+                    iStatus = clInstrCtrl_WriteCmd(strWriteCmd);
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                }
+                else if (iChanIndex == 1)
+                {
+                    iStatus = clInstrCtrl_WriteCmd("DISP:CHAN 2");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    strWriteCmd = string.Format("VOLT2 {0}", dCurCh1PowerVoltage);
+                    iStatus = clInstrCtrl_WriteCmd(strWriteCmd);
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    strWriteCmd = string.Format("CURR2 {0}", dCurCh1PowerCurrent);
+                    iStatus = clInstrCtrl_WriteCmd(strWriteCmd);
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                }
+            }
+            else if (strCurPowerSupplyType == "KET2306")
+            {
+                if (iChanIndex == 0)
+                {
+                    iStatus = clInstrCtrl_WriteCmd("DISP:CHAN 1");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    clInstrCtrl_WriteCmd("SENS:CURR:RANG:AUTO ON");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    strWriteCmd = string.Format("VOLT {0}", dCurCh0PowerVoltage);
+                    iStatus = clInstrCtrl_WriteCmd(strWriteCmd);
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    strWriteCmd = string.Format("CURR {0}", dCurCh0PowerCurrent);
+                    iStatus = clInstrCtrl_WriteCmd(strWriteCmd);
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                }
+                else if (iChanIndex == 1)
+                {
+                    iStatus = clInstrCtrl_WriteCmd("DISP:CHAN 2");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    iStatus = clInstrCtrl_WriteCmd("SENS2:CURR:RANG:AUTO ON");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    strWriteCmd = string.Format("SOUR2:VOLT {0}", dCurCh1PowerVoltage);
+                    iStatus = clInstrCtrl_WriteCmd(strWriteCmd);
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    strWriteCmd = string.Format("SOUR2:CURR {0}", dCurCh1PowerCurrent);
+                    iStatus = clInstrCtrl_WriteCmd(strWriteCmd);
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                }
+            }
+            return iStatus;
+        }
+
+        public int clInstrCtrl_PowerOff(string strCurPowerSupplyType, int iChanIndex)
+        {
+            int iStatus = 0;
+            if (strCurPowerSupplyType == "AG66319B")
+            {
+                if (iChanIndex == 0)
+                {
+                    iStatus = clInstrCtrl_WriteCmd("VOLT 0");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    clInstrCtrl_WriteCmd("CURR 3");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                }
+                else if (iChanIndex == 1)
+                {
+                    iStatus = clInstrCtrl_WriteCmd("VOLT2 0");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    iStatus = clInstrCtrl_WriteCmd("CURR2 1.5");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                }
+            }
+            else if (strCurPowerSupplyType == "KET2306")
+            {
+                if (iChanIndex == 0)
+                {
+                    iStatus = clInstrCtrl_WriteCmd("VOLT 0");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    iStatus = clInstrCtrl_WriteCmd("CURR 3");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                }
+                else if (iChanIndex == 1)
+                {
+                    iStatus = clInstrCtrl_WriteCmd("SOUR2:VOLT 0");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                    iStatus = clInstrCtrl_WriteCmd("SOUR2:CURR 1.5");
+                    if (iStatus != 0)
+                    {
+                        return iStatus;
+                    }
+                }
+            }
+            return iStatus;
+        }
+
+        private string ReplaceCommonEscapeSequences(string s)//字符zhuanhuan
+        {
+            return s.Replace("\\n", "\n").Replace("\\r", "\r");
+        }
+
+        private string InsertCommonEscapeSequences(string s)
+        {
+            return s.Replace("\n", "\\n").Replace("\r", "\\r");
+        }
+    }
+}
